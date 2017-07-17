@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Innovative forms</title>
+    <style>
+        html, body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cube {
+            display: block;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: perspective(600px) rotateX(-33.5deg) rotateY(45deg);
+            animation: 5s rot linear infinite;
+        }
+
+        @keyframes rot {
+            0% {
+                transform: perspective(600px) rotateX(-33.5deg) rotateY(0deg);
+            }
+            100% {
+                transform: perspective(600px) rotateX(-33.5deg) rotateY(360deg);
+            }
+        }
+
+        .cubeside {
+            width: 300px;
+            height: 300px;
+            background-color: darkgray;
+            position: absolute;
+            left: -150px;
+            top: -150px;
+            backface-visibility: hidden;
+            overflow: hidden;
+        }
+        .front {
+            transform: translateZ(150px);
+            background-color: lightcoral;
+        }
+        .back {
+            transform: rotateX(-180deg)
+              translateZ(150px);
+            background-color: lightcoral;
+        }
+        .right {
+            transform: rotateY(90deg)
+              translateZ(150px);
+            background-color: lightgreen;
+        }
+        .left {
+            transform: rotateY(-90deg)
+               translateZ(150px);
+            background-color: lightgreen;
+        }
+        .top {
+            transform: rotateX(90deg)
+               translateZ(150px);
+            background-color: lightblue;
+        }
+        .bottom {
+            transform: rotateX(-90deg)
+              translateZ(150px);
+            background-color: lightblue;
+        }
+        
+        .tbox {
+            /* width: 200px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="cubeside front">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="firstname">First Name</label></td>
+                        <td><input type="text" name="firstname" class="tbox"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lastname">Last Name</label></td>
+                        <td><input type="text" name="lastname" class="tbox"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cubeside back"></div>
+        <div class="cubeside right"></div>
+        <div class="cubeside left"></div>
+        <div class="cubeside top"></div>
+        <div class="cubeside bottom"></div>
+    </div>
+</body>
+</html>
